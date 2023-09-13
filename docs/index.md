@@ -687,6 +687,31 @@ describe('retries', function () {
 });
 ```
 
+## Repeat Tests
+
+Tests can also be repeated when they pass. This feature can be used to test for leaks and proper tear-down procedures. In this case a test is considered to be successful only if all the runs are successful.
+
+This feature does re-run a passed test and its corresponding `beforeEach/afterEach` hooks, but not `before/after` hooks.
+
+If using both `repeat` and `retries`, the test will be run `repeat` times tolerating up to `retries` failures in total.
+
+```js
+describe('repeat', function () {
+  // Repeat all tests in this suite 4 times
+  this.repeats(4);
+
+  beforeEach(function () {
+    browser.get('http://www.yahoo.com');
+  });
+
+  it('should use proper tear-down', function () {
+    // Specify this test to only retry up to 2 times
+    this.repeats(2);
+    expect($('.foo').isDisplayed()).to.eventually.be.true;
+  });
+});
+```
+
 ## Dynamically Generating Tests
 
 Given Mocha's use of function expressions to define suites and test cases, it's straightforward to generate your tests dynamically. No special syntax is required &mdash; plain ol' JavaScript can be used to achieve functionality similar to "parameterized" tests, which you may have seen in other frameworks.
@@ -1777,7 +1802,7 @@ describe('Array', function () {
       it('should not throw an error', function () {
         (function () {
           [1, 2, 3].indexOf(4);
-        }.should.not.throw());
+        }).should.not.throw();
       });
       it('should return -1', function () {
         [1, 2, 3].indexOf(4).should.equal(-1);
@@ -2152,6 +2177,7 @@ mocha.setup({
   forbidPending: true,
   global: ['MyLib'],
   retries: 3,
+  repeats: 1,
   rootHooks: { beforeEach(done) { ... done();} },
   slow: '100',
   timeout: '2000',
