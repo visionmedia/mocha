@@ -1,5 +1,19 @@
 # Changelog
 
+## [11.1.1](https://github.com/mochajs/mocha/compare/v11.1.0...v11.1.1) (2025-01-08)
+
+
+### 📚 Documentation
+
+* add instructions for API docs ([#5287](https://github.com/mochajs/mocha/issues/5287)) ([b720ec1](https://github.com/mochajs/mocha/commit/b720ec1b3ca630a90f80311da391b2a0cdfead4e))
+* improve third-party reporter docs ([#5285](https://github.com/mochajs/mocha/issues/5285)) ([c5a0ef5](https://github.com/mochajs/mocha/commit/c5a0ef523d52d8cab50e4a9b226af3790f54e75f))
+
+
+### 🧹 Chores
+
+* pin node-lts tests to 22.11.0 ([#5279](https://github.com/mochajs/mocha/issues/5279)) ([664e1f4](https://github.com/mochajs/mocha/commit/664e1f49f7ae214a9666c90f388407e9fa100309))
+* replace `fs-extra` with newer `fs` built-ins ([#5284](https://github.com/mochajs/mocha/issues/5284)) ([75dcf8c](https://github.com/mochajs/mocha/commit/75dcf8c6c40ed1ce134ae5e174b6f4c4ca4d8c42))
+
 ## [11.1.0](https://github.com/mochajs/mocha/compare/v11.0.2...v11.1.0) (2025-01-02)
 
 
